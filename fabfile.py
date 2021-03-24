@@ -357,7 +357,7 @@ def verify_certs_status():
 
 def check_expiry():
 	with settings(warn_only=True, parallel=False):
-		expiry_date = run("openssl s_client -connect " + env.host +":10050 -servername "+ env.host+ " 2>/dev/null | openssl x509 -noout -dates|grep notAfter")
+		expiry_date = run("ls")
 		if expiry_date.return_code == 0:
 			print(expiry_date)
 			Year_exp = expiry_date.split()[-2]
